@@ -4,7 +4,7 @@
 local PLAYER_EVENT_ON_SPELL_CAST = 5
 
 local function ProspectingBug(event, player, spell, skipCheck)  
---Check if prospecting is cast, if its not then end the function
+    --Check if prospecting is cast, if its not then end the function
     if(spell:GetEntry() ~= 31252) then
         return
     end
