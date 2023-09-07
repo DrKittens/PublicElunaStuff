@@ -10,7 +10,7 @@ local function ProspectingBug(event, player, spell, skipCheck)
     end
     
     --Check the spell is actually casting ie passed the check
-    if(player:IsCasting() then
+    if(player:IsCasting()) then
         --Get ObjectID Of Materials
         materials = spell:GetTarget():GetEntry()
         --Complete the Spell Cast
