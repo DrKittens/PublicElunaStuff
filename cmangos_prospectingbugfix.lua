@@ -9,15 +9,15 @@ local function ProspectingBug(event, player, spell, skipCheck)
         return
     end
     
-    --Get ObjectID Of Materials
-    materials = spell:GetTarget():GetEntry()
-    
-    --Complete the Spell Cast
-    spell:Finish()
-
-    --Delete the Material Components from the player immediately
-    player:RemoveItem(materials, 5)
-
+    --Check the spell is actually casting ie passed the check
+    if(player:IsCasting() then
+        --Get ObjectID Of Materials
+        materials = spell:GetTarget():GetEntry()
+        --Complete the Spell Cast
+        spell:Finish()
+        --Delete the Material Components from the player immediately
+        player:RemoveItem(materials, 5)
+    end
 end
 
 --Register our event
