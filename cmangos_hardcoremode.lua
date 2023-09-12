@@ -39,7 +39,7 @@ end
 --Ban a character if they login dead eg alt+f4'd to try and avoid dying
 local function DeadLogin(event, player)
     if(player:IsDead()) then
-        RunCommand("ban character ", killed:GetName(), "LoggedInWhileDead -1")
+        RunCommand("ban character ", player:GetName(), "LoggedInWhileDead -1")
     end
 end
 
