@@ -23,7 +23,7 @@ local function RIPCharacter(event, killer, killed)
         if(killed:IsGuildMaster()) then
             killed:GetGuild():Disband()
             --Announce the "tragedy" to world
-            SendWorldMessage("The Guild ",player:GetGuildName()," has fallen")
+            SendWorldMessage("The Guild ", killed:GetGuildName()," has fallen")
         else
             killed:GetGuild():DeleteMember(killed, false)
         end
