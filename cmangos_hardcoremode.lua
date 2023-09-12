@@ -18,9 +18,6 @@ local function RIPCharacter(event, killer, killed)
 --Log the player out
 --    killed:LogoutPlayer(false)
 
---Ban their character - could logout & delete via sql but this is easier / funnier having them delete it themselves
-    RunCommand("ban character ", killed:GetName(), "Died -1")
-
 --Remove them from a guild and disband it if they're the leader, yes really.
     if(killed:IsInGuild()) then
         if(killed:IsGuildMaster()) then
@@ -34,6 +31,9 @@ local function RIPCharacter(event, killer, killed)
     SendWorldMessage("", killed:GetName(), " has been slain by ", killer:GetName(), "!")
     SendWorldMessage("Blood for the Blood God!")
     SendWorldMessage("Skulls for the Skull Throne!")
+
+--Ban their character - could logout & delete via sql but this is easier / funnier having them delete it themselves
+    RunCommand("ban character ", killed:GetName(), "Died -1")
 end
 
 --Ban a character if they login dead eg alt+f4'd to try and avoid dying
