@@ -21,9 +21,11 @@ local function RIPCharacter(event, killer, killed)
 --Remove them from a guild and disband it if they're the leader, yes really.
     if(killed:IsInGuild()) then
         if(killed:IsGuildMaster()) then
-            killed:GetGuild():Disband()
             --Announce the "tragedy" to world
             SendWorldMessage("The Guild ", killed:GetGuildName()," has fallen")
+            killed:GetGuild():Disband()
+            
+            
         else
             killed:GetGuild():DeleteMember(killed, false)
         end
